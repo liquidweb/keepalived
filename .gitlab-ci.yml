@@ -1,0 +1,12 @@
+stages:
+  - build
+
+docker-image:
+  tags:
+    - docker-with-registry
+  stage: build
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE .
+    - docker push $CI_REGISTRY_IMAGE
