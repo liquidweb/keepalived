@@ -26,9 +26,6 @@ vrrp_instance ingress_1 {
   garp_master_refresh 60
   interface eth0
 
-  #state BACKUP
-  #priority 100
-
   virtual_router_id 1
   virtual_ipaddress {
     $vip
